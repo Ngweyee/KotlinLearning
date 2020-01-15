@@ -8,29 +8,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val obj = MyClass()
-        obj.printMe()
 
-        val nest = Outer().Nested().foo()
-        println(nest)
+        val person1 = Person("ngwe yee shoon", 25)
+        println("First Name = ${person1.firstName}")
+        println("Age = ${person1.age}")
 
-        // inner class
-
-
-        // Anonymous inner class
-        var programmer: Human = object : Human {
-            override fun think() {
-                println("I am an example of Anonymous Inner Class ")
-            }
-        }
-
-        programmer.think()
-
-
+        // secondary constructor
+        val HUman = HUman("TutorialsPoint.com", 25)
+        println(
+            HUman.message + HUman.firstName +
+                    "Welcome to the example of Secondary  constructor, Your Age is-${HUman.age}"
+        )
     }
 
 
-    interface Human {
-        fun think()
-    }
 }
