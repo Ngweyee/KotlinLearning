@@ -9,57 +9,57 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val a = 10000
-        val d = 100.00
-        val f = 100.00f
-        val l: Long = 1000000004
-        val s: Short = 10
-        val b: Byte = 1
+        // if....else
+        val a = 5
+        val b = 2
+        var max: Int
 
-        println("Your Int Value is $a")
-        println("Your Double  Value is $d")
-        println("Your Float Value is $f")
-        println("Your Long Value is $l")
-        println("Your Short Value is $s")
-        println("Your Byte Value is $b")
+        max = if (a > b) a else b
+        println("Maximum of a or b is $max")
 
-        val letter: Char    // defining a variable
-        letter = 'A'        // Assigning a value to it
-        println("$letter")
+        // Use of When
+        val x = 5
+        when (x) {
+            1 -> println("x == 1")
+            2, 5 -> println("x is $x")
+            else -> {
+                println("x is neither 1 nor 2")
+            }
+        }
 
-        val booleanValue: Boolean   // defining a variable
-        booleanValue = true         // Assinging a value to it
-        println("Your character value is $booleanValue")
+        val items = listOf(1, 2, 3, 4)
+        for (i in items) println("values of the array" + i)
 
+        for ((index, value) in items.withIndex()) {
+            println("The printed value $value at index $index")
+        }
 
-        var rawString = "I am Raw String!"
-        val escapedString = "I am escaped String!\n"
+        // while loop
+        var w: Int = 0
+        println("Example of While Loop--")
 
-        println("Hello!  $escapedString")
-        println("Hey!! $rawString ")
+        while (w <= 10) {
+            println(w)
+            w++
+        }
 
-        val numberArray = intArrayOf(1, 2, 3, 4, 5)
-        println("Hey!! I am array Example" + numberArray.filter {
-            it % 2 == 0
-        })
-
-        val numbers: MutableList<Int> = mutableListOf(1, 2, 3) //mutable List
-        val readOnlyView: List<Int> = numbers                  // immutable list
-        println("my mutable list-- $numbers")        // prints "[1, 2, 3]"
-        numbers.add(4)
-        println("my mutable list after addition -- $numbers")        // prints "[1, 2, 3, 4]"
-        println("readonlylist $readOnlyView")
-        // readOnlyView.clear()    // ⇒ does not compile
-        numbers.clear()
-        print("empty list $numbers")
+        //do while loop
+        var dw = 0
+        do {
+            dw = dw + 10
+            println("I am inside Do block---$dw")
+        } while (dw <= 50)
 
 
-        val i: Int = 2
-        for (j in 1..4)
-            print(j) // prints "1234"
-
-        if (i in 1..10) { // equivalent of 1 < = i && i < = 10
-            println("we found your number --$i")
+//return , break, continue, customLabel
+        myLabel@ for (rbc in 1..10) { // appling the custom label
+            if (rbc == 5) {
+                println("I am inside if block with value$rbc\n-- hence it will close the operation")
+                break@myLabel //specifing the label
+            } else {
+                println("I am inside else block with value$rbc")
+                continue@myLabel
+            }
         }
     }
 }
