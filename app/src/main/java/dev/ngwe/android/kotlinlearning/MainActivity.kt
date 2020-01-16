@@ -9,34 +9,45 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val a = internalExample()
-        println(a.doSomething())
+        var a1 = Alien()
+        a1.skills = "JAVA"
+
+        var a2 = Alien()
+        a2.skills = "KOTLIN"
+
+        var a3 = Alien()
+        a3.skills = a1.addMySkills(a2)
+        a3.printMySkills()
+
+        println("Hey!! ${A.show()}")
+
     }
 
 
 }
 
-
-open class A() {
-    protected val i = 1
+private fun Alien.addMySkills(a2: Alien): String {
+    var a4 = Alien()
+    a4.skills = this.skills + " " + a2.skills
+    return a4.skills
 }
 
-class B : A() {
-    fun getValue(): Int {
-        return i
+class Alien {
+
+    var skills: String = "null"
+
+    fun printMySkills() {
+
+        println(skills)
     }
 
+
 }
 
-class internalExample {
-    internal val i = 1
-    internal fun doSomething() {
-        println(i)
-    }
-}
-
-class publicExample {
-    val i = 1
-    fun doSomething() {
+class A {
+    companion object {
+        fun show():String {
+            return("You are learning Kotlin from TutorialsPoint.com")
+        }
     }
 }
