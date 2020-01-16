@@ -8,55 +8,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val obj = InterfaceImpl()
-        println("My Variable Value is = ${obj.myVar}")
-        print("Calling hello(): ")
-        obj.Hello()
-        print("Message from the Website-- ")
-        println(obj.absMethod())
 
-        val ab = multipleInterfaceExample()
-        ab.printMe()
-        ab.printMeToo()
+        val a = internalExample()
+        println(a.doSomething())
     }
 
 
 }
 
-interface ExampleInterface {
-    var myVar: Int // abstract property
-    fun absMethod(): String// abstract method
-    // fun sayHello() = "Hello there" // method with default implementation
 
-    fun Hello() {
-        println("Hello there, Welcome to TutorialsPoint.Com!")
+open class A() {
+    protected val i = 1
+}
+
+class B : A() {
+    fun getValue(): Int {
+        return i
     }
 
 }
 
-
-class InterfaceImpl : ExampleInterface {
-
-    override var myVar: Int = 25
-    override fun absMethod() = "Happy Learning "
-
-}
-
-interface A {
-
-    fun printMe() {
-        println(" method of interface A")
-    }
-
-}
-
-interface B {
-
-    fun printMeToo() {
-        println("I am another Method from interface B")
+class internalExample {
+    internal val i = 1
+    internal fun doSomething() {
+        println(i)
     }
 }
 
-
-class multipleInterfaceExample : A, B
-
+class publicExample {
+    val i = 1
+    fun doSomething() {
+    }
+}
