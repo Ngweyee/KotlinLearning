@@ -9,21 +9,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val obj: Example = Example.OP1()
-        val output = when (obj) { // defining the object of the class depending on the inuputs
-            is Example.OP1 -> "Option One has been chosen"
-            is Example.OP2 -> "option Two has been chosen"
-            else -> "Nothing chose"
-        }
 
-        println(output)
+        var objet = genericExample("JAVA")
+        var objet1 = genericExample(10)
+
+        var object2 = genericExample<Int>(10)
+        var object3 = genericExample<Double>(10.00)
+        println(object2)
+        println(object3)
+    }
+
+
+}
+
+class genericExample<T>(input: T) {
+
+    init {
+        println("I am getting called with the value $input")
 
     }
 
 
 }
 
-sealed class Example {
-    class OP1 : Example()
-    class OP2 : Example()
-}
