@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         var objet = genericExample("JAVA")
         var objet1 = genericExample(10)
 
-        var object2 = genericExample<Int>(10)
-        var object3 = genericExample<Double>(10.00)
+        val object2 = genericExample<Int>(10)
+        val object3 = genericExample<Double>(10.00)
         println(object2)
         println(object3)
     }
