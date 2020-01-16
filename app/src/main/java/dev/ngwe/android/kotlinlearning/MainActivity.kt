@@ -8,20 +8,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val book = Book("Kotlin", "TutorialPoint.com", 5)
-        println("Name of the Book is--" + book.name) // "Kotlin"
-        println("Publisher Name--" + book.publisher) // "TutorialPoint.com"
-        println("Review of the book is--" + book.reviewScore) // 5
-        book.reviewScore = 7
-        println("Printing all the info all together--$book")
-        //using inbuilt function of the data class
 
-        println("Example of the hashCode function--" + book.hashCode())
+        val obj: Example = Example.OP1()
+        val output = when (obj) { // defining the object of the class depending on the inuputs
+            is Example.OP1 -> "Option One has been chosen"
+            is Example.OP2 -> "option Two has been chosen"
+            else -> "Nothing chose"
+        }
+
+        println(output)
+
     }
 
 
 }
 
-data class Book(val name: String, val publisher: String, var reviewScore: Int)
-
-
+sealed class Example {
+    class OP1 : Example()
+    class OP2 : Example()
+}
