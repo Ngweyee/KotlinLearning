@@ -9,19 +9,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val myLambda: (String) -> Unit = { s: String ->
-            println(s)
-        }
-        val v = "TutorialsPoint.com"
-        myLambda(v)
-        v.myFun(myLambda)
-
-    }
-
-    private fun String.myFun(myLambda: (String) -> Unit) {
-        print("Hey!!!")
-        myLambda(this)
+        val s = Student("TutorialsPoint.com", "Kotlin")
+        val (name, subject) = s
+        println("You are learning $subject from $name")
     }
 
 
+}
+
+data class Student(val a: String, val b: String) {
+    var name: String = a
+    var subject: String = b
 }
