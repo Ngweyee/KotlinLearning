@@ -14,7 +14,13 @@ class MainActivity : AppCompatActivity() {
         }
         val v = "TutorialsPoint.com"
         myLambda(v)
+        v.myFun(myLambda)
 
+    }
+
+    private fun String.myFun(myLambda: (String) -> Unit) {
+        print("Hey!!!")
+        myLambda(this)
     }
 
 
